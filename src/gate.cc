@@ -21,7 +21,7 @@ UGate::UGate(const double phi1, const double phi2, const double phi3) {
   u11_ = w2 * w3 * w1.real();
 }
 
-bool UGate::Apply(State &state, const QbitList &qbits) {
+bool UGate::Transform(State &state, const QbitList &qbits) {
   if (qbits.size() != 1 || qbits.front() >= state.NumQbits()) {
     return false;
   }
@@ -55,7 +55,7 @@ CUGate::CUGate(const double phi1, const double phi2, const double phi3) {
   u11_ = w1 * w2 * w1.real();
 }
 
-bool CUGate::Apply(State &state, const QbitList &qbits) {
+bool CUGate::Transform(State &state, const QbitList &qbits) {
   if (qbits.size() != 2 || qbits.front() >= state.NumQbits() ||
       qbits.back() >= state.NumQbits()) {
     return false;

@@ -15,7 +15,7 @@ int Main() {
 
   auto state = State(4);
 
-  assert(circuit->Apply(state));
+  assert(circuit->Transform(state));
   return 0;
 }
 

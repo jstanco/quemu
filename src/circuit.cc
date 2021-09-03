@@ -56,9 +56,9 @@ bool Circuit::Replace(std::unique_ptr<Gate> gate, const QbitList& qbits,
 }
 */
 
-bool Circuit::Apply(State& state) {
+bool Circuit::Transform(State& state) {
   for (auto& event : schedule_) {
-    if (!event.second->Apply(state, event.first.qbits)) {
+    if (!event.second->Transform(state, event.first.qbits)) {
       return false;
     }
   }

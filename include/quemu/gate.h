@@ -19,7 +19,7 @@ class State;
 class Gate {
  public:
   virtual ~Gate() {}
-  virtual bool Apply(State &state, const QbitList &qbits) = 0;
+  virtual bool Transform(State &state, const QbitList &qbits) = 0;
 };
 
 struct GateSpecifier {
@@ -62,7 +62,7 @@ struct GateComparator {
 class UGate : public Gate {
  public:
   UGate(const double phi1, const double phi2, const double phi3);
-  bool Apply(State &state, const QbitList &qbits) override;
+  bool Transform(State &state, const QbitList &qbits) override;
 
  private:
   cx_double u00_, u01_, u10_, u11_;
@@ -71,7 +71,7 @@ class UGate : public Gate {
 class CUGate : public Gate {
  public:
   CUGate(const double phi1, const double phi2, const double phi3);
-  bool Apply(State &state, const QbitList &qbits) override;
+  bool Transform(State &state, const QbitList &qbits) override;
 
  private:
   cx_double u00_, u01_, u10_, u11_;

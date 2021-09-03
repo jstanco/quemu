@@ -23,7 +23,7 @@ class Circuit {
   Circuit(const Circuit &other) = delete;
   Circuit &operator=(Circuit other) = delete;
 
-  bool Apply(State &state);
+  bool Transform(State &state);
 
  private:
   friend class CircuitBuilder;
@@ -38,16 +38,19 @@ class CircuitBuilder {
  public:
   CircuitBuilder();
 
-  // Resets builder state
+  /// Resets internal builder state.  All previously added will be cleared.
   CircuitBuilder &BuildCircuit();
 
-  // Generic add function
+  /// Add Gate instance to the circuit acting on a set of qbits at a specific
+  /// time.
   CircuitBuilder &AddGate(std::unique_ptr<Gate>, const QbitList &qbits,
                           const uint32_t time);
 
+  /// Return newly created Circuit object.  If the builder state is invalid due
+  /// to an improperly added gate, this call will return nullptr.
   std::unique_ptr<Circuit> Get();
 
-  // Single qbit gates
+  // Convenience methods for creating single qbit gates.
   CircuitBuilder &AddGateX(const qbit_t qbit, const uint32_t time);
   CircuitBuilder &AddGateY(const qbit_t qbit, const uint32_t time);
   CircuitBuilder &AddGateZ(const qbit_t qbit, const uint32_t time);
@@ -65,7 +68,7 @@ class CircuitBuilder {
                             const double phi2, const double phi3,
                             const uint32_t time);
 
-  // Double qbit gates
+  // Convenience methods for creating double-qbit gates
   CircuitBuilder &AddGateCX(const qbit_t qbit, const qbit_t control,
                             const uint32_t time);
   CircuitBuilder &AddGateCU1(const qbit_t qbit, const qbit_t control,
