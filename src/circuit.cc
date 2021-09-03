@@ -127,21 +127,18 @@ CircuitBuilder& CircuitBuilder::AddGateT(const qbit_t qbit,
 
 CircuitBuilder& CircuitBuilder::AddGateTd(const qbit_t qbit,
                                           const uint32_t time) {
-  // auto z = std::shared_ptr<ZGate>( new ZGate );
   auto gate = std::make_unique<UGate>(0, 0, -kPi / 4);
   return AddGate(std::move(gate), {qbit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateID(const qbit_t qbit,
-                                          const uint32_t time) {
-  // auto z = std::shared_ptr<ZGate>( new ZGate );
+CircuitBuilder& CircuitBuilder::AddGateI(const qbit_t qbit,
+                                         const uint32_t time) {
   auto gate = std::make_unique<UGate>(0, 0, 0);
   return AddGate(std::move(gate), {qbit}, time);
 }
 
 CircuitBuilder& CircuitBuilder::AddGateH(const qbit_t qbit,
                                          const uint32_t time) {
-  // auto z = std::shared_ptr<ZGate>( new ZGate );
   auto gate = std::make_unique<UGate>(kPi / 2, 0, kPi);
   return AddGate(std::move(gate), {qbit}, time);
 }
