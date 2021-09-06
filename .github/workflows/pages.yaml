@@ -2,7 +2,7 @@ name: Doxygen documentation generation for Github Pages
 on:
   push:
     branches:
-    - main
+    - dev
 jobs:
   build-doxygen-docs:
     runs-on: ubuntu-latest
@@ -10,14 +10,15 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
+      - name: Install doxygen
+      - run: sudo apt-get install -y doxygen
+
       - name: Build documentation
-        uses: mattnotmitt/doxygen-action@v1
-        with:
-          working-directory: '.doxygen/'
+        run: cd .doxygen && doxygen Doxyfile
 
       - name: Publish documentation
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./.doxygen/html
+          publish_dir: ./.doxygen/build/html
       
