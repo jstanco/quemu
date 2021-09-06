@@ -1,9 +1,6 @@
 # quemu
-Quemu is an object-oriented quantum circuit simulation framework, providing utility for building and running custom quantum circuits.
 
-## Usage
-
-In Quemu, a user constructs an instance of `CircuitBuilder`, which can be used to incrementally build a quantum circuit by adding instances of `Gate`.  The user then calls `CircuitBuilder::Get` to retrieve a finished `Circuit` instance.
+**Quemu** is an object-oriented quantum circuit simulation framework, providing utility for building and running custom quantum circuits. In quemu, a user is able to incrementally create quantum gates and add them to a custom circuit.  To do so, the user constructs an instance of `CircuitBuilder`, and adds instances of `Gate`.  After the appropriate gates have been added, the user calls `CircuitBuilder::Get`to retrieve a finished `Circuit` instance.
 
 ```cc
 // Use CircuitBuilder to construct a Circuit instance.
@@ -14,7 +11,7 @@ auto circuit = builder.BuildCircuit()
                      .Get();
 ```
 
-An instance of `Circuit` is meant to act on a reference to an instance of `State`, through the `Circuit::Transform` method.  When invoked on a single instance of `State`, the transform is performed in place.  In this case, the state belongs to the circuit's input register prior to the transform, and the output register after the transform. 
+An instance of `Circuit` can be used to transform an instance of `State`, through the `Circuit::Transform` method.  When invoked on a single instance of `State`, the transform is performed in place, in which case the state belongs to the circuit's input register prior to the transform, and the output register after the transform. 
 
 ```cc
 const auto num_qubits = 4;
