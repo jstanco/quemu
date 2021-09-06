@@ -14,8 +14,6 @@
 namespace quemu {
 
 typedef std::complex<double> cx_double;
-typedef std::map<GateSpecifier, std::unique_ptr<Gate>, GateComparator>
-    GateSchedule;
 
 class Circuit {
  public:
@@ -33,11 +31,34 @@ class Circuit {
   bool Transform(const State &input, State &output);
 
  private:
+  // Allow friend access in factory class
   friend class CircuitBuilder;
 
   Circuit() = default;
+
+  // Convenience function for factory friend access
   bool AddGate(std::unique_ptr<Gate> gate, const QubitList &qubits,
                const uint32_t time);
+
+  // Structure
+  struct GateSpecifier {
+    // Specifies discrete time that gate acts
+    const uint32_t time;
+
+    // Specifies set of qubits that gate acts on
+    QubitList qubits;
+
+    GateSpecifier(const uint32_t t, const QubitList &qs)
+        : time{t}, qubits{qs} {}
+  };
+
+  struct GateComparator {
+    // less than
+    bool operator()(const GateSpecifier &lhs, const GateSpecifier &rhs) const;
+  };
+
+  typedef std::map<GateSpecifier, std::unique_ptr<Gate>, GateComparator>
+      GateSchedule;
 
   GateSchedule schedule_;
   std::map<uint32_t, std::set<qubit_t> > occupied_;
@@ -55,11 +76,11 @@ class CircuitBuilder {
   CircuitBuilder &AddGate(std::unique_ptr<Gate>, const QubitList &qubits,
                           const uint32_t time);
 
-  /// Return newly created Circuit object.  If the builder state is invalid due
-  /// to an improperly added gate, this call will return nullptr.
+  /// Return newly created Circuit object.  If the builder state is invalid
+  /// due to an improperly added gate, this call will return nullptr.
   std::unique_ptr<Circuit> Get();
 
-  // Convenience methods for creating single qubit gates.
+  // Convenience methods for creating single-qubit gates.
 
   /// Pauli X-gate
   CircuitBuilder &AddGateX(const qubit_t qubit, const uint32_t time);
@@ -79,7 +100,7 @@ class CircuitBuilder {
   /// T-Gate (4th root of Z)
   CircuitBuilder &AddGateT(const qubit_t qubit, const uint32_t time);
 
-  // Td-Gate (inverse of T-Gate)
+  /// Td-Gate (inverse of T-Gate)
   CircuitBuilder &AddGateTd(const qubit_t qubit, const uint32_t time);
 
   /// Identity gate
@@ -100,6 +121,8 @@ class CircuitBuilder {
   CircuitBuilder &AddGateU3(const qubit_t qubit, const double phi1,
                             const double phi2, const double phi3,
                             const uint32_t time);
+
+  // Convenience methods for creating two-qubit gates.
 
   /// Controlled Pauli X-gate
   CircuitBuilder &AddGateCX(const qubit_t qubit, const qubit_t control,

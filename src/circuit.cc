@@ -12,6 +12,33 @@ namespace quemu {
 
 const double kPi = std::acos(-1);
 
+bool Circuit::GateComparator::operator()(const GateSpecifier& lhs,
+                                         const GateSpecifier& rhs) const {
+  if (lhs.time > rhs.time) {
+    return false;
+  } else if (lhs.time < rhs.time) {
+    return true;
+  }
+
+  // same time
+  if (lhs.qubits.size() > rhs.qubits.size()) {
+    return false;
+  } else if (lhs.qubits.size() < rhs.qubits.size()) {
+    return true;
+  }
+
+  // same length qubit list
+  for (size_t i = 0; i < rhs.qubits.size(); ++i) {
+    if (lhs.qubits[i] > rhs.qubits[i]) {
+      return false;
+    } else if (lhs.qubits[i] < rhs.qubits[i]) {
+      return true;
+    }
+  }
+  // equal
+  return false;
+}
+
 bool Circuit::AddGate(std::unique_ptr<Gate> gate, const QubitList& qubits,
                       const uint32_t time) {
   // check for overlapping events ( from gates of different sizes )

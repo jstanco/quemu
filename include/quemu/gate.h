@@ -22,43 +22,6 @@ class Gate {
   virtual bool Transform(State &state, const QubitList &qubits) = 0;
 };
 
-struct GateSpecifier {
-  // specifies at what time ( discrete )
-  const uint32_t time;
-  // specifies which qubit to act on
-  QubitList qubits;
-  GateSpecifier(const uint32_t t, const QubitList &qs) : time{t}, qubits{qs} {}
-};
-
-struct GateComparator {
-  // less than
-  bool operator()(const GateSpecifier &lhs, const GateSpecifier &rhs) const {
-    if (lhs.time > rhs.time) {
-      return false;
-    } else if (lhs.time < rhs.time) {
-      return true;
-    }
-
-    // same time
-    if (lhs.qubits.size() > rhs.qubits.size()) {
-      return false;
-    } else if (lhs.qubits.size() < rhs.qubits.size()) {
-      return true;
-    }
-
-    // same length qubit list
-    for (size_t i = 0; i < rhs.qubits.size(); ++i) {
-      if (lhs.qubits[i] > rhs.qubits[i]) {
-        return false;
-      } else if (lhs.qubits[i] < rhs.qubits[i]) {
-        return true;
-      }
-    }
-    // equal
-    return false;
-  }
-};
-
 class UGate : public Gate {
  public:
   UGate(const double phi1, const double phi2, const double phi3);
