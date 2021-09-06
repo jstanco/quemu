@@ -13,7 +13,7 @@ jobs:
       - name: Build documentation
         uses: mattnotmitt/doxygen-action@v1
         with:
-          working_directory: '.doxygen/'
+          working-directory: '.doxygen/'
 
       - name: Publish documentation
         uses: peaceiris/actions-gh-pages@v3
