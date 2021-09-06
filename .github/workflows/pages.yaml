@@ -10,11 +10,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Install requirements
-        run: apt-get install -y doxygen
-
       - name: Build documentation
-        run: cd .doxygen && doxygen Doxyfile
+        uses: mattnotmitt/doxygen-action@v1
 
       - name: Publish documentation
         uses: peaceiris/actions-gh-pages@v3
