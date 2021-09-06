@@ -2,7 +2,7 @@ name: Doxygen documentation generation for Github Pages
 on:
   push:
     branches:
-    - dev
+    - main
 jobs:
   build-doxygen-docs:
     runs-on: ubuntu-latest
