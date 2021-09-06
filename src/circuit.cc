@@ -12,28 +12,28 @@ namespace quemu {
 
 const double kPi = std::acos(-1);
 
-bool Circuit::AddGate(std::unique_ptr<Gate> gate, const QbitList& qbits,
+bool Circuit::AddGate(std::unique_ptr<Gate> gate, const QubitList& qubits,
                       const uint32_t time) {
   // check for overlapping events ( from gates of different sizes )
   auto it = occupied_.find(time);
   if (it != occupied_.end()) {
-    for (auto& qbit : qbits) {
-      if (!it->second.insert(qbit).second) {
+    for (auto& qubit : qubits) {
+      if (!it->second.insert(qubit).second) {
         return false;
       }
     }
   } else {
     occupied_.emplace(
-        std::make_pair(time, std::set<qbit_t>{qbits.begin(), qbits.end()}));
+        std::make_pair(time, std::set<qubit_t>{qubits.begin(), qubits.end()}));
   }
   return schedule_
-      .emplace(std::make_pair(GateSpecifier{time, qbits}, std::move(gate)))
+      .emplace(std::make_pair(GateSpecifier{time, qubits}, std::move(gate)))
       .second;
 }
 
 bool Circuit::Transform(State& state) {
   for (auto& event : schedule_) {
-    if (!event.second->Transform(state, event.first.qbits)) {
+    if (!event.second->Transform(state, event.first.qubits)) {
       return false;
     }
   }
@@ -62,114 +62,117 @@ std::unique_ptr<Circuit> CircuitBuilder::Get() {
 }
 
 CircuitBuilder& CircuitBuilder::AddGate(std::unique_ptr<Gate> gate,
-                                        const QbitList& qbits,
+                                        const QubitList& qubits,
                                         const uint32_t time) {
-  good_ = good_ && circuit_->AddGate(std::move(gate), qbits, time);
+  good_ = good_ && circuit_->AddGate(std::move(gate), qubits, time);
   return *this;
 }
 
-CircuitBuilder& CircuitBuilder::AddGateX(const qbit_t qbit,
+CircuitBuilder& CircuitBuilder::AddGateX(const qubit_t qubit,
                                          const uint32_t time) {
   auto gate = std::make_unique<UGate>(kPi, 0, kPi);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateY(const qbit_t qbit,
+CircuitBuilder& CircuitBuilder::AddGateY(const qubit_t qubit,
                                          const uint32_t time) {
   auto gate = std::make_unique<UGate>(kPi, kPi / 2, kPi / 2);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateZ(const qbit_t qbit,
+CircuitBuilder& CircuitBuilder::AddGateZ(const qubit_t qubit,
                                          const uint32_t time) {
   auto gate = std::make_unique<UGate>(0, 0, kPi);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateS(const qbit_t qbit,
+CircuitBuilder& CircuitBuilder::AddGateS(const qubit_t qubit,
                                          const uint32_t time) {
   auto gate = std::make_unique<UGate>(0, 0, kPi / 2);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateSd(const qbit_t qbit,
+CircuitBuilder& CircuitBuilder::AddGateSd(const qubit_t qubit,
                                           const uint32_t time) {
   auto gate = std::make_unique<UGate>(0, 0, -kPi / 2);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateT(const qbit_t qbit,
+CircuitBuilder& CircuitBuilder::AddGateT(const qubit_t qubit,
                                          const uint32_t time) {
   auto gate = std::make_unique<UGate>(0, 0, kPi / 4);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateTd(const qbit_t qbit,
+CircuitBuilder& CircuitBuilder::AddGateTd(const qubit_t qubit,
                                           const uint32_t time) {
   auto gate = std::make_unique<UGate>(0, 0, -kPi / 4);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateI(const qbit_t qbit,
+CircuitBuilder& CircuitBuilder::AddGateI(const qubit_t qubit,
                                          const uint32_t time) {
   auto gate = std::make_unique<UGate>(0, 0, 0);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateH(const qbit_t qbit,
+CircuitBuilder& CircuitBuilder::AddGateH(const qubit_t qubit,
                                          const uint32_t time) {
   auto gate = std::make_unique<UGate>(kPi / 2, 0, kPi);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateU1(const qbit_t qbit, const double phase,
+CircuitBuilder& CircuitBuilder::AddGateU1(const qubit_t qubit,
+                                          const double phase,
                                           const uint32_t time) {
   auto gate = std::make_unique<UGate>(0, 0, phase);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateU2(const qbit_t qbit, const double phi1,
-                                          const double phi2, uint32_t time) {
+CircuitBuilder& CircuitBuilder::AddGateU2(const qubit_t qubit,
+                                          const double phi1, const double phi2,
+                                          uint32_t time) {
   auto gate = std::make_unique<UGate>(kPi / 2, phi1, phi2);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateU3(const qbit_t qbit, const double phi1,
-                                          const double phi2, const double phi3,
+CircuitBuilder& CircuitBuilder::AddGateU3(const qubit_t qubit,
+                                          const double phi1, const double phi2,
+                                          const double phi3,
                                           const uint32_t time) {
   auto gate = std::make_unique<UGate>(phi1, phi2, phi3);
-  return AddGate(std::move(gate), {qbit}, time);
+  return AddGate(std::move(gate), {qubit}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateCX(const qbit_t qbit,
-                                          const qbit_t control,
+CircuitBuilder& CircuitBuilder::AddGateCX(const qubit_t qubit,
+                                          const qubit_t control,
                                           const uint32_t time) {
   auto gate = std::make_unique<CUGate>(kPi, 0, kPi);
-  return AddGate(std::move(gate), {qbit, control}, time);
+  return AddGate(std::move(gate), {qubit, control}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateCU1(const qbit_t qbit,
-                                           const qbit_t control,
+CircuitBuilder& CircuitBuilder::AddGateCU1(const qubit_t qubit,
+                                           const qubit_t control,
                                            const double phase,
                                            const uint32_t time) {
   auto gate = std::make_unique<CUGate>(0, 0, phase);
-  return AddGate(std::move(gate), {qbit, control}, time);
+  return AddGate(std::move(gate), {qubit, control}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateCU2(const qbit_t qbit,
-                                           const qbit_t control,
+CircuitBuilder& CircuitBuilder::AddGateCU2(const qubit_t qubit,
+                                           const qubit_t control,
                                            const double phi1, const double phi2,
                                            const uint32_t time) {
   auto gate = std::make_unique<CUGate>(kPi / 2, phi1, phi2);
-  return AddGate(std::move(gate), {qbit, control}, time);
+  return AddGate(std::move(gate), {qubit, control}, time);
 }
 
-CircuitBuilder& CircuitBuilder::AddGateCU3(const qbit_t qbit,
-                                           const qbit_t control,
+CircuitBuilder& CircuitBuilder::AddGateCU3(const qubit_t qubit,
+                                           const qubit_t control,
                                            const double phi1, const double phi2,
                                            const double phi3,
                                            const uint32_t time) {
   auto gate = std::make_unique<CUGate>(phi1, phi2, phi3);
-  return AddGate(std::move(gate), {qbit, control}, time);
+  return AddGate(std::move(gate), {qubit, control}, time);
 }
 }  // namespace quemu

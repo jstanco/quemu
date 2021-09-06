@@ -36,11 +36,11 @@ class Circuit {
   friend class CircuitBuilder;
 
   Circuit() = default;
-  bool AddGate(std::unique_ptr<Gate> gate, const QbitList &qbits,
+  bool AddGate(std::unique_ptr<Gate> gate, const QubitList &qubits,
                const uint32_t time);
 
   GateSchedule schedule_;
-  std::map<uint32_t, std::set<qbit_t> > occupied_;
+  std::map<uint32_t, std::set<qubit_t> > occupied_;
 };
 
 class CircuitBuilder {
@@ -50,72 +50,72 @@ class CircuitBuilder {
   /// Resets internal builder state.  All previously added will be cleared.
   CircuitBuilder &BuildCircuit();
 
-  /// Add Gate instance to the circuit acting on a set of qbits at a specific
+  /// Add Gate instance to the circuit acting on a set of qubits at a specific
   /// time.
-  CircuitBuilder &AddGate(std::unique_ptr<Gate>, const QbitList &qbits,
+  CircuitBuilder &AddGate(std::unique_ptr<Gate>, const QubitList &qubits,
                           const uint32_t time);
 
   /// Return newly created Circuit object.  If the builder state is invalid due
   /// to an improperly added gate, this call will return nullptr.
   std::unique_ptr<Circuit> Get();
 
-  // Convenience methods for creating single qbit gates.
+  // Convenience methods for creating single qubit gates.
 
   /// Pauli X-gate
-  CircuitBuilder &AddGateX(const qbit_t qbit, const uint32_t time);
+  CircuitBuilder &AddGateX(const qubit_t qubit, const uint32_t time);
 
   /// Pauli Y-gate
-  CircuitBuilder &AddGateY(const qbit_t qbit, const uint32_t time);
+  CircuitBuilder &AddGateY(const qubit_t qubit, const uint32_t time);
 
   /// Pauli Z-gate
-  CircuitBuilder &AddGateZ(const qbit_t qbit, const uint32_t time);
+  CircuitBuilder &AddGateZ(const qubit_t qubit, const uint32_t time);
 
   /// S-Gate (square root of Z)
-  CircuitBuilder &AddGateS(const qbit_t qbit, const uint32_t time);
+  CircuitBuilder &AddGateS(const qubit_t qubit, const uint32_t time);
 
   /// Sd-Gate (inverse of S-Gate)
-  CircuitBuilder &AddGateSd(const qbit_t qbit, const uint32_t time);
+  CircuitBuilder &AddGateSd(const qubit_t qubit, const uint32_t time);
 
   /// T-Gate (4th root of Z)
-  CircuitBuilder &AddGateT(const qbit_t qbit, const uint32_t time);
+  CircuitBuilder &AddGateT(const qubit_t qubit, const uint32_t time);
 
   // Td-Gate (inverse of T-Gate)
-  CircuitBuilder &AddGateTd(const qbit_t qbit, const uint32_t time);
+  CircuitBuilder &AddGateTd(const qubit_t qubit, const uint32_t time);
 
   /// Identity gate
-  CircuitBuilder &AddGateI(const qbit_t qbit, const uint32_t time);
+  CircuitBuilder &AddGateI(const qubit_t qubit, const uint32_t time);
 
-  /// Add single-qbit Hadamard gate
-  CircuitBuilder &AddGateH(const qbit_t qbit, const uint32_t time);
+  /// Add single-qubit Hadamard gate
+  CircuitBuilder &AddGateH(const qubit_t qubit, const uint32_t time);
 
   /// Unitary gate with one phase parameter
-  CircuitBuilder &AddGateU1(const qbit_t qbit, const double phase,
+  CircuitBuilder &AddGateU1(const qubit_t qubit, const double phase,
                             const uint32_t time);
 
   /// Unitary gate with two phase parameters
-  CircuitBuilder &AddGateU2(const qbit_t qbit, const double phi1,
+  CircuitBuilder &AddGateU2(const qubit_t qubit, const double phi1,
                             const double phi2, const uint32_t time);
 
   /// Unitary gate with three phase parameters
-  CircuitBuilder &AddGateU3(const qbit_t qbit, const double phi1,
+  CircuitBuilder &AddGateU3(const qubit_t qubit, const double phi1,
                             const double phi2, const double phi3,
                             const uint32_t time);
 
   /// Controlled Pauli X-gate
-  CircuitBuilder &AddGateCX(const qbit_t qbit, const qbit_t control,
+  CircuitBuilder &AddGateCX(const qubit_t qubit, const qubit_t control,
                             const uint32_t time);
 
   /// Controlled unitary gate with one phase parameter (P-gate)
-  CircuitBuilder &AddGateCU1(const qbit_t qbit, const qbit_t control,
+  CircuitBuilder &AddGateCU1(const qubit_t qubit, const qubit_t control,
                              const double phase, uint32_t time);
 
   /// Controlled unitary gate with two phase parameters
-  CircuitBuilder &AddGateCU2(const qbit_t qbit, const qbit_t control,
+  CircuitBuilder &AddGateCU2(const qubit_t qubit, const qubit_t control,
                              const double phi1, const double phi2,
                              const uint32_t time);
 
   /// Controlled unitary gate with three phase parameters
-  CircuitBuilder &AddGateCU3(const qbit_t qbit, const qbit_t control,
+  CircuitBuilder &AddGateCU3(const qubit_t qubit, const qubit_t control,
                              const double phi1, const double phi2,
                              const double phi3, const uint32_t time);
 

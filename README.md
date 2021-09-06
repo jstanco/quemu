@@ -13,12 +13,25 @@ auto circuit = builder.BuildCircuit()
                      .Get();
 ```
 
-An instance of `Circuit` is meant to act on a reference to an instance of `State`, through the `Circuit::Transform` method.  Before the transform, the state  belongs to the input register of the circuit, whereas the resulting state belongs to the output register of the circuit.
+An instance of `Circuit` is meant to act on a reference to an instance of `State`, through the `Circuit::Transform` method.  When invoked on a single instance of `State`, the transform is performed in place.  In this case, the state belongs to the circuit's input register prior to the transform, and the output register after the transform. 
 
 ```c++
 const auto num_qubits = 4;
+
+// In-place transform
 auto state = State(num_qubits);
 const auto success = circuit->Transform(state);
+```
+
+When performing the transform out-of-place, the input and output registers are defined separately.
+
+```c++
+const auto num_qubits = 4;
+
+// Out-of-place transform
+auto input = State(num_qubits);
+auto output = State(num_qubits);
+const auto success = circuit->Transform(input, output);
 ```
 
 

@@ -21,16 +21,16 @@ UGate::UGate(const double phi1, const double phi2, const double phi3) {
   u11_ = w2 * w3 * w1.real();
 }
 
-bool UGate::Transform(State &state, const QbitList &qbits) {
-  if (qbits.size() != 1 || qbits.front() >= state.NumQbits()) {
+bool UGate::Transform(State &state, const QubitList &qubits) {
+  if (qubits.size() != 1 || qubits.front() >= state.NumQubits()) {
     return false;
   }
 
-  const qbit_t NumQbits = state.NumQbits();
-  const qbit_t qbit_index = qbits.front();
+  const qubit_t NumQubits = state.NumQubits();
+  const qubit_t qubit_index = qubits.front();
 
-  const size_t stride = 1 << qbit_index;
-  const size_t active_state = (1 << NumQbits) - stride;
+  const size_t stride = 1 << qubit_index;
+  const size_t active_state = (1 << NumQubits) - stride;
 
   for (size_t i = 0; i < active_state; i += stride) {
     const auto max = i + stride;
@@ -55,18 +55,18 @@ CUGate::CUGate(const double phi1, const double phi2, const double phi3) {
   u11_ = w1 * w2 * w1.real();
 }
 
-bool CUGate::Transform(State &state, const QbitList &qbits) {
-  if (qbits.size() != 2 || qbits.front() >= state.NumQbits() ||
-      qbits.back() >= state.NumQbits()) {
+bool CUGate::Transform(State &state, const QubitList &qubits) {
+  if (qubits.size() != 2 || qubits.front() >= state.NumQubits() ||
+      qubits.back() >= state.NumQubits()) {
     return false;
   }
 
-  const auto NumQbits = state.NumQbits();
-  const auto qbit_index = qbits.front();
-  const auto control = qbits.back();
+  const auto NumQubits = state.NumQubits();
+  const auto qubit_index = qubits.front();
+  const auto control = qubits.back();
 
-  const size_t stride = 1 << qbit_index;
-  const size_t active_state = (1 << NumQbits) - stride;
+  const size_t stride = 1 << qubit_index;
+  const size_t active_state = (1 << NumQubits) - stride;
   const size_t control_mask = (1 << control);
 
   for (size_t i = 0; i < active_state; i += stride) {

@@ -6,8 +6,9 @@
 
 namespace quemu {
 
-State::State(const qbit_t num_qbits)
-    : states_{std::vector<cx_double>(1 << num_qbits)}, num_qbits_{num_qbits} {
+State::State(const qubit_t num_qubits)
+    : states_{std::vector<cx_double>(1 << num_qubits)},
+      num_qubits_{num_qubits} {
   states_[0] = 1;
 }
 
@@ -22,11 +23,11 @@ const cx_double& State::operator[](const size_t index) const {
 
 cx_double& State::operator[](const size_t index) { return states_[index]; }
 
-qbit_t State::NumQbits() const { return num_qbits_; }
+qubit_t State::NumQubits() const { return num_qubits_; }
 size_t State::Size() const { return states_.size(); }
 
 bool State::CopyFrom(const State& other) {
-  if (NumQbits() != other.NumQbits()) {
+  if (NumQubits() != other.NumQubits()) {
     return false;
   }
 

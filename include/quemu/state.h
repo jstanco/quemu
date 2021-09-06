@@ -11,12 +11,12 @@
 namespace quemu {
 
 // Quantum state
-typedef unsigned int qbit_t;
+typedef unsigned int qubit_t;
 typedef std::complex<double> cx_double;
 
 class State {
  public:
-  explicit State(const qbit_t num_qbits);
+  explicit State(const qubit_t num_qubits);
 
   typedef std::vector<cx_double>::iterator iterator;
   typedef std::vector<cx_double>::const_iterator const_iterator;
@@ -29,17 +29,17 @@ class State {
   const cx_double &operator[](const size_t index) const;
   cx_double &operator[](const size_t index);
 
-  qbit_t NumQbits() const;
+  qubit_t NumQubits() const;
   size_t Size() const;
   void Normalize();
 
-  /// Copies state from other.  If the number of qbits don't match, this method
+  /// Copies state from other.  If the number of qubits don't match, this method
   /// will return false, and the state will not be modifed.
   bool CopyFrom(const State &other);
 
  private:
   std::vector<cx_double> states_;
-  const qbit_t num_qbits_;
+  const qubit_t num_qubits_;
 };
 
 }  // namespace quemu
