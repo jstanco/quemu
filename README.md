@@ -16,7 +16,8 @@ auto circuit = builder.BuildCircuit()
 An instance of `Circuit` is meant to act on a reference to an instance of `State`, through the `Circuit::Transform` method.  Before the transform, the state  belongs to the input register of the circuit, whereas the resulting state belongs to the output register of the circuit.
 
 ```c++
-auto state = State(4);
+const auto num_qubits = 4;
+auto state = State(num_qubits);
 const auto success = circuit->Transform(state);
 ```
 
