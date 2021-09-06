@@ -1,4 +1,4 @@
-name: Doxygen Documentation Generation for Github Pages
+name: Doxygen documentation generation for Github Pages
 on:
   push:
     branches:
