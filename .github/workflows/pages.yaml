@@ -1,0 +1,24 @@
+name: Sphinx Documentation Generation for Github Pages
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build-sphinx-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Install requirements
+        run: pip3 install -r requirements.txt
+
+      - name: Build documentation
+        run: cd docs && pip3 install -r requirements.txt && make html
+
+      - name: Publish documentation
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build/html
+      
