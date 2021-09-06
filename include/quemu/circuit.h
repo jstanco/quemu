@@ -19,14 +19,23 @@ typedef std::map<GateSpecifier, std::unique_ptr<Gate>, GateComparator>
 
 class Circuit {
  public:
-  Circuit() = default;
+  // Circuits are non-copyable
   Circuit(const Circuit &other) = delete;
   Circuit &operator=(Circuit other) = delete;
 
+  /// In-place application of circuit.  Before the transform, 'state' belongs
+  /// to the input register.  After the transform, 'state' belongs to the
+  /// output register.
   bool Transform(State &state);
+
+  /// Out-of-place application of circuit. 'input' belongs to the input
+  /// register, and 'output' belongs to the output register.
+  bool Transform(const State &input, State &output);
 
  private:
   friend class CircuitBuilder;
+
+  Circuit() = default;
   bool AddGate(std::unique_ptr<Gate> gate, const QbitList &qbits,
                const uint32_t time);
 

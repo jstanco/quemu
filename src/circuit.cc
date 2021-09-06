@@ -31,31 +31,6 @@ bool Circuit::AddGate(std::unique_ptr<Gate> gate, const QbitList& qbits,
       .second;
 }
 
-/*
-bool Circuit::Remove(const QbitList& qbits, const uint32_t time) {
-  auto it = schedule_.find(GateSpecifier{time, qbits});
-  if (it == schedule_.end()) {
-    return false;
-  }
-
-  schedule_.erase(it);
-  return true;
-}
-
-bool Circuit::Replace(std::unique_ptr<Gate> gate, const QbitList& qbits,
-                      const uint32_t time) {
-  auto it = schedule_.find(GateSpecifier{time, qbits});
-  if (it == schedule_.end()) {
-    // gate not found
-    return false;
-  }
-
-  // gate found, replace
-  it->second = std::move(gate);
-  return true;
-}
-*/
-
 bool Circuit::Transform(State& state) {
   for (auto& event : schedule_) {
     if (!event.second->Transform(state, event.first.qbits)) {
@@ -65,10 +40,14 @@ bool Circuit::Transform(State& state) {
   return true;
 }
 
+bool Circuit::Transform(const State& input, State& output) {
+  return output.CopyFrom(input) && Transform(output);
+}
+
 CircuitBuilder::CircuitBuilder() : circuit_{nullptr}, good_{false} {}
 
 CircuitBuilder& CircuitBuilder::BuildCircuit() {
-  circuit_ = std::make_unique<Circuit>();
+  circuit_ = std::unique_ptr<Circuit>{new Circuit};
   good_ = true;
   return *this;
 }

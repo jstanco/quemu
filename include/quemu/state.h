@@ -26,18 +26,20 @@ class State {
   iterator end();
   const_iterator end() const;
 
-  const cx_double &operator[](size_t index) const;
-  cx_double &operator[](size_t index);
+  const cx_double &operator[](const size_t index) const;
+  cx_double &operator[](const size_t index);
 
   qbit_t NumQbits() const;
   size_t Size() const;
   void Normalize();
 
- private:
-  std::vector<cx_double> qbits_;
-  qbit_t num_qbits_;
+  /// Copies state from other.  If the number of qbits don't match, this method
+  /// will return false, and the state will not be modifed.
+  bool CopyFrom(const State &other);
 
-  void init();
+ private:
+  std::vector<cx_double> states_;
+  const qbit_t num_qbits_;
 };
 
 }  // namespace quemu
