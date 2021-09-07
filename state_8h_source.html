@@ -84,46 +84,45 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using</span> qubit_t = uint32_t;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classquemu_1_1State.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classquemu_1_1State.html">State</a> final {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classquemu_1_1State.html#a490314520b6ec259565f17f440ca8a22">State</a>(<span class="keyword">const</span> qubit_t num_qubits);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">   29</a></span>&#160;  <span class="keyword">typedef</span> std::vector&lt;std::complex&lt;double&gt;&gt;<a class="code" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">::iterator</a> <a class="code" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">iterator</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">   32</a></span>&#160;  <span class="keyword">typedef</span> std::vector&lt;std::complex&lt;double&gt;&gt;<a class="code" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">::const_iterator</a> <a class="code" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">const_iterator</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">iterator</a> begin();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">const_iterator</a> begin() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">iterator</a> end();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">const_iterator</a> end() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">const</span> std::complex&lt;double&gt; &amp;<a class="code" href="classquemu_1_1State.html#a5745c5744d684a53670d264702f7ec76">operator[]</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> index) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  std::complex&lt;double&gt; &amp;<a class="code" href="classquemu_1_1State.html#a5745c5744d684a53670d264702f7ec76">operator[]</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> index);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  qubit_t <a class="code" href="classquemu_1_1State.html#ad3cacf793406efd7339abfb24cd93620">NumQubits</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="classquemu_1_1State.html#a6c0921ec7c7079eab865ea9f2121ee8e">Size</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classquemu_1_1State.html#ac50d5996a78373ad6878c9c236a67787">Normalize</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classquemu_1_1State.html#a637913c359645b9ad3fba7e5ec90929a">CopyFrom</a>(<span class="keyword">const</span> <a class="code" href="classquemu_1_1State.html">State</a> &amp;other);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  std::vector&lt;std::complex&lt;double&gt;&gt; states_;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">const</span> qubit_t num_qubits_;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}  <span class="comment">// namespace quemu</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif  // QUEMU_STATE_H_</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classquemu_1_1State.html#a490314520b6ec259565f17f440ca8a22">State</a>(<span class="keyword">const</span> qubit_t num_qubits);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">   28</a></span>&#160;  <span class="keyword">typedef</span> std::vector&lt;std::complex&lt;double&gt;&gt;<a class="code" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">::iterator</a> <a class="code" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">iterator</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">   31</a></span>&#160;  <span class="keyword">typedef</span> std::vector&lt;std::complex&lt;double&gt;&gt;<a class="code" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">::const_iterator</a> <a class="code" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">const_iterator</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">iterator</a> begin();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">const_iterator</a> begin() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">iterator</a> end();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">const_iterator</a> end() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">const</span> std::complex&lt;double&gt; &amp;<a class="code" href="classquemu_1_1State.html#a5745c5744d684a53670d264702f7ec76">operator[]</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  std::complex&lt;double&gt; &amp;<a class="code" href="classquemu_1_1State.html#a5745c5744d684a53670d264702f7ec76">operator[]</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  qubit_t <a class="code" href="classquemu_1_1State.html#ad3cacf793406efd7339abfb24cd93620">NumQubits</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">size_t</span> <a class="code" href="classquemu_1_1State.html#a6c0921ec7c7079eab865ea9f2121ee8e">Size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classquemu_1_1State.html#ac50d5996a78373ad6878c9c236a67787">Normalize</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classquemu_1_1State.html#a637913c359645b9ad3fba7e5ec90929a">CopyFrom</a>(<span class="keyword">const</span> <a class="code" href="classquemu_1_1State.html">State</a> &amp;other);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  std::vector&lt;std::complex&lt;double&gt;&gt; states_;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">const</span> qubit_t num_qubits_;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}  <span class="comment">// namespace quemu</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif  // QUEMU_STATE_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassquemu_1_1State_html_a490314520b6ec259565f17f440ca8a22"><div class="ttname"><a href="classquemu_1_1State.html#a490314520b6ec259565f17f440ca8a22">quemu::State::State</a></div><div class="ttdeci">State(const qubit_t num_qubits)</div></div>
 <div class="ttc" id="aclassquemu_1_1State_html_ac50d5996a78373ad6878c9c236a67787"><div class="ttname"><a href="classquemu_1_1State.html#ac50d5996a78373ad6878c9c236a67787">quemu::State::Normalize</a></div><div class="ttdeci">void Normalize()</div></div>
-<div class="ttc" id="aclassquemu_1_1State_html_aed048df6d2ad6d408856794f37e2f109"><div class="ttname"><a href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">quemu::State::const_iterator</a></div><div class="ttdeci">std::vector&lt; std::complex&lt; double &gt; &gt;::const_iterator const_iterator</div><div class="ttdoc">Allows iteration over the underlying vector memory.</div><div class="ttdef"><b>Definition:</b> state.h:32</div></div>
+<div class="ttc" id="aclassquemu_1_1State_html_aed048df6d2ad6d408856794f37e2f109"><div class="ttname"><a href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">quemu::State::const_iterator</a></div><div class="ttdeci">std::vector&lt; std::complex&lt; double &gt; &gt;::const_iterator const_iterator</div><div class="ttdoc">Allows iteration over the underlying vector memory.</div><div class="ttdef"><b>Definition:</b> state.h:31</div></div>
 <div class="ttc" id="aclassquemu_1_1State_html_a6c0921ec7c7079eab865ea9f2121ee8e"><div class="ttname"><a href="classquemu_1_1State.html#a6c0921ec7c7079eab865ea9f2121ee8e">quemu::State::Size</a></div><div class="ttdeci">size_t Size() const</div></div>
 <div class="ttc" id="aclassquemu_1_1State_html"><div class="ttname"><a href="classquemu_1_1State.html">quemu::State</a></div><div class="ttdef"><b>Definition:</b> state.h:19</div></div>
-<div class="ttc" id="aclassquemu_1_1State_html_a814b797ecd1f00b5415d8fe395a83158"><div class="ttname"><a href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">quemu::State::iterator</a></div><div class="ttdeci">std::vector&lt; std::complex&lt; double &gt; &gt;::iterator iterator</div><div class="ttdoc">Allows iteration over the underlying vector memory.</div><div class="ttdef"><b>Definition:</b> state.h:29</div></div>
+<div class="ttc" id="aclassquemu_1_1State_html_a814b797ecd1f00b5415d8fe395a83158"><div class="ttname"><a href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">quemu::State::iterator</a></div><div class="ttdeci">std::vector&lt; std::complex&lt; double &gt; &gt;::iterator iterator</div><div class="ttdoc">Allows iteration over the underlying vector memory.</div><div class="ttdef"><b>Definition:</b> state.h:28</div></div>
 <div class="ttc" id="aclassquemu_1_1State_html_a5745c5744d684a53670d264702f7ec76"><div class="ttname"><a href="classquemu_1_1State.html#a5745c5744d684a53670d264702f7ec76">quemu::State::operator[]</a></div><div class="ttdeci">const std::complex&lt; double &gt; &amp; operator[](const size_t index) const</div></div>
 <div class="ttc" id="aclassquemu_1_1State_html_a637913c359645b9ad3fba7e5ec90929a"><div class="ttname"><a href="classquemu_1_1State.html#a637913c359645b9ad3fba7e5ec90929a">quemu::State::CopyFrom</a></div><div class="ttdeci">bool CopyFrom(const State &amp;other)</div></div>
 <div class="ttc" id="aclassquemu_1_1State_html_ad3cacf793406efd7339abfb24cd93620"><div class="ttname"><a href="classquemu_1_1State.html#ad3cacf793406efd7339abfb24cd93620">quemu::State::NumQubits</a></div><div class="ttdeci">qubit_t NumQubits() const</div><div class="ttdoc">Returns number of qubits in register.</div></div>
