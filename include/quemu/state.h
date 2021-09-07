@@ -17,7 +17,6 @@ using qubit_t = uint32_t;
 /// each index represents the complex amplitude corresponding to a particular
 /// combination of all N qubits.
 class State final {
- private:
  public:
   /// Initializes the state with fixed number of qubits.  At initialization, the
   /// tensor product state will have a complex probability with a value of one

@@ -13,7 +13,7 @@
 
 namespace quemu {
 
-class Circuit {
+class Circuit final {
  public:
   // Circuits are non-copyable
   Circuit(const Circuit &other) = delete;
@@ -64,7 +64,7 @@ class Circuit {
   std::map<uint32_t, std::set<qubit_t>> occupied_;
 };
 
-class CircuitBuilder {
+class CircuitBuilder final {
  public:
   CircuitBuilder();
 
