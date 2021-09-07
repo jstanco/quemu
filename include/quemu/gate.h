@@ -21,7 +21,7 @@ class Gate {
  public:
   virtual ~Gate() {}
 
-  /// Transform input state in-place by acting on specified qubits on desired
+  /// Transform input state in-place by acting on specified set of desired
   /// qubits.
   virtual bool Transform(State &state, const QubitList &qubits) = 0;
 };
