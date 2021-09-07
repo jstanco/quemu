@@ -16,12 +16,16 @@ typedef std::complex<double> cx_double;
 typedef std::vector<qubit_t> QubitList;
 class State;
 
+/// Abstract base class representing a quantum gate.
 class Gate {
  public:
   virtual ~Gate() {}
+
+  // Transform input state in-place acting on desired qubits.
   virtual bool Transform(State &state, const QubitList &qubits) = 0;
 };
 
+/// Unitary 3-parameter quantum gate
 class UGate : public Gate {
  public:
   UGate(const double phi1, const double phi2, const double phi3);
@@ -31,6 +35,7 @@ class UGate : public Gate {
   cx_double u00_, u01_, u10_, u11_;
 };
 
+/// Controlled unitary 3-parameter quantum gate
 class CUGate : public Gate {
  public:
   CUGate(const double phi1, const double phi2, const double phi3);
