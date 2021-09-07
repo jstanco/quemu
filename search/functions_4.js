@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['transform_54',['Transform',['../classquemu_1_1Circuit.html#a775f51371e2bbaea4a0a79e744cbfc37',1,'quemu::Circuit::Transform(State &amp;state)'],['../classquemu_1_1Circuit.html#aaca64480ae69106ada612beb322ce899',1,'quemu::Circuit::Transform(const State &amp;input, State &amp;output)']]]
+  ['normalize_60',['Normalize',['../classquemu_1_1State.html#ac50d5996a78373ad6878c9c236a67787',1,'quemu::State']]],
+  ['numqubits_61',['NumQubits',['../classquemu_1_1State.html#ad3cacf793406efd7339abfb24cd93620',1,'quemu::State']]]
 ];

@@ -87,38 +87,42 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">typedef</span> std::vector&lt;qubit_t&gt; QubitList;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span>State;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classquemu_1_1Gate.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classquemu_1_1Gate.html">Gate</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classquemu_1_1Gate.html">Gate</a>() {}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Transform(<a class="code" href="classquemu_1_1State.html">State</a> &amp;state, <span class="keyword">const</span> QubitList &amp;qubits) = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classquemu_1_1UGate.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classquemu_1_1UGate.html">UGate</a> : <span class="keyword">public</span> <a class="code" href="classquemu_1_1Gate.html">Gate</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="classquemu_1_1UGate.html">UGate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> phi1, <span class="keyword">const</span> <span class="keywordtype">double</span> phi2, <span class="keyword">const</span> <span class="keywordtype">double</span> phi3);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">bool</span> Transform(<a class="code" href="classquemu_1_1State.html">State</a> &amp;state, <span class="keyword">const</span> QubitList &amp;qubits) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  cx_double u00_, u01_, u10_, u11_;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classquemu_1_1CUGate.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classquemu_1_1CUGate.html">CUGate</a> : <span class="keyword">public</span> <a class="code" href="classquemu_1_1Gate.html">Gate</a> {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="classquemu_1_1CUGate.html">CUGate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> phi1, <span class="keyword">const</span> <span class="keywordtype">double</span> phi2, <span class="keyword">const</span> <span class="keywordtype">double</span> phi3);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">bool</span> Transform(<a class="code" href="classquemu_1_1State.html">State</a> &amp;state, <span class="keyword">const</span> QubitList &amp;qubits) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classquemu_1_1Gate.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classquemu_1_1Gate.html">Gate</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classquemu_1_1Gate.html">Gate</a>() {}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classquemu_1_1Gate.html#a43db88591a0cd69603b36466ca4de3f0">Transform</a>(<a class="code" href="classquemu_1_1State.html">State</a> &amp;state, <span class="keyword">const</span> QubitList &amp;qubits) = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classquemu_1_1UGate.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="classquemu_1_1UGate.html">UGate</a> final : <span class="keyword">public</span> <a class="code" href="classquemu_1_1Gate.html">Gate</a> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classquemu_1_1UGate.html">UGate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> phi1, <span class="keyword">const</span> <span class="keywordtype">double</span> phi2, <span class="keyword">const</span> <span class="keywordtype">double</span> phi3);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classquemu_1_1UGate.html#a8a5760df553c11a17356a7ad41d068bb">Transform</a>(<a class="code" href="classquemu_1_1State.html">State</a> &amp;state, <span class="keyword">const</span> QubitList &amp;qubits) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  cx_double u00_, u01_, u10_, u11_;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  cx_double u00_, u01_, u10_, u11_;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}  <span class="comment">// namespace quemu</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classquemu_1_1CUGate.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="classquemu_1_1CUGate.html">CUGate</a> final : <span class="keyword">public</span> <a class="code" href="classquemu_1_1Gate.html">Gate</a> {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="classquemu_1_1CUGate.html">CUGate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> phi1, <span class="keyword">const</span> <span class="keywordtype">double</span> phi2, <span class="keyword">const</span> <span class="keywordtype">double</span> phi3);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classquemu_1_1CUGate.html#a0608162d0a64e9472c3a6bb29d499407">Transform</a>(<a class="code" href="classquemu_1_1State.html">State</a> &amp;state, <span class="keyword">const</span> QubitList &amp;qubits) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif  // QUEMU_GATE_H_</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  cx_double u00_, u01_, u10_, u11_;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}  <span class="comment">// namespace quemu</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif  // QUEMU_GATE_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassquemu_1_1UGate_html"><div class="ttname"><a href="classquemu_1_1UGate.html">quemu::UGate</a></div><div class="ttdef"><b>Definition:</b> gate.h:25</div></div>
-<div class="ttc" id="aclassquemu_1_1CUGate_html"><div class="ttname"><a href="classquemu_1_1CUGate.html">quemu::CUGate</a></div><div class="ttdef"><b>Definition:</b> gate.h:34</div></div>
-<div class="ttc" id="aclassquemu_1_1State_html"><div class="ttname"><a href="classquemu_1_1State.html">quemu::State</a></div><div class="ttdef"><b>Definition:</b> state.h:17</div></div>
-<div class="ttc" id="aclassquemu_1_1Gate_html"><div class="ttname"><a href="classquemu_1_1Gate.html">quemu::Gate</a></div><div class="ttdef"><b>Definition:</b> gate.h:19</div></div>
+<div class="ttc" id="aclassquemu_1_1UGate_html"><div class="ttname"><a href="classquemu_1_1UGate.html">quemu::UGate</a></div><div class="ttdoc">Unitary 3-parameter quantum gate.</div><div class="ttdef"><b>Definition:</b> gate.h:30</div></div>
+<div class="ttc" id="aclassquemu_1_1UGate_html_a8a5760df553c11a17356a7ad41d068bb"><div class="ttname"><a href="classquemu_1_1UGate.html#a8a5760df553c11a17356a7ad41d068bb">quemu::UGate::Transform</a></div><div class="ttdeci">bool Transform(State &amp;state, const QubitList &amp;qubits) override</div></div>
+<div class="ttc" id="aclassquemu_1_1CUGate_html_a0608162d0a64e9472c3a6bb29d499407"><div class="ttname"><a href="classquemu_1_1CUGate.html#a0608162d0a64e9472c3a6bb29d499407">quemu::CUGate::Transform</a></div><div class="ttdeci">bool Transform(State &amp;state, const QubitList &amp;qubits) override</div></div>
+<div class="ttc" id="aclassquemu_1_1CUGate_html"><div class="ttname"><a href="classquemu_1_1CUGate.html">quemu::CUGate</a></div><div class="ttdoc">Controlled unitary 3-parameter quantum gate.</div><div class="ttdef"><b>Definition:</b> gate.h:40</div></div>
+<div class="ttc" id="aclassquemu_1_1State_html"><div class="ttname"><a href="classquemu_1_1State.html">quemu::State</a></div><div class="ttdef"><b>Definition:</b> state.h:19</div></div>
+<div class="ttc" id="aclassquemu_1_1Gate_html"><div class="ttname"><a href="classquemu_1_1Gate.html">quemu::Gate</a></div><div class="ttdoc">Abstract base class representing a quantum gate.</div><div class="ttdef"><b>Definition:</b> gate.h:20</div></div>
+<div class="ttc" id="aclassquemu_1_1Gate_html_a43db88591a0cd69603b36466ca4de3f0"><div class="ttname"><a href="classquemu_1_1Gate.html#a43db88591a0cd69603b36466ca4de3f0">quemu::Gate::Transform</a></div><div class="ttdeci">virtual bool Transform(State &amp;state, const QubitList &amp;qubits)=0</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

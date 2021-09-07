@@ -70,54 +70,84 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classquemu_1_1State-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">quemu::State Class Reference</div>  </div>
+<div class="title">quemu::State Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="state_8h_source.html">state.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab14931ef0c93f6ba3654aa691cb9b060"><td class="memItemLeft" align="right" valign="top"><a id="ab14931ef0c93f6ba3654aa691cb9b060"></a>
-typedef std::vector&lt; cx_double &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>iterator</b></td></tr>
-<tr class="separator:ab14931ef0c93f6ba3654aa691cb9b060"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aade38801ffbb371d8cc21c7fa7d54984"><td class="memItemLeft" align="right" valign="top"><a id="aade38801ffbb371d8cc21c7fa7d54984"></a>
-typedef std::vector&lt; cx_double &gt;::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></td></tr>
-<tr class="separator:aade38801ffbb371d8cc21c7fa7d54984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a814b797ecd1f00b5415d8fe395a83158"><td class="memItemLeft" align="right" valign="top"><a id="a814b797ecd1f00b5415d8fe395a83158"></a>
+typedef std::vector&lt; std::complex&lt; double &gt; &gt;::<a class="el" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">iterator</a></td></tr>
+<tr class="memdesc:a814b797ecd1f00b5415d8fe395a83158"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows iteration over the underlying vector memory. <br /></td></tr>
+<tr class="separator:a814b797ecd1f00b5415d8fe395a83158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed048df6d2ad6d408856794f37e2f109"><td class="memItemLeft" align="right" valign="top"><a id="aed048df6d2ad6d408856794f37e2f109"></a>
+typedef std::vector&lt; std::complex&lt; double &gt; &gt;::<a class="el" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">const_iterator</a></td></tr>
+<tr class="memdesc:aed048df6d2ad6d408856794f37e2f109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows iteration over the underlying vector memory. <br /></td></tr>
+<tr class="separator:aed048df6d2ad6d408856794f37e2f109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a490314520b6ec259565f17f440ca8a22"><td class="memItemLeft" align="right" valign="top"><a id="a490314520b6ec259565f17f440ca8a22"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>State</b> (const qubit_t num_qubits)</td></tr>
+<tr class="memitem:a490314520b6ec259565f17f440ca8a22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquemu_1_1State.html#a490314520b6ec259565f17f440ca8a22">State</a> (const qubit_t num_qubits)</td></tr>
 <tr class="separator:a490314520b6ec259565f17f440ca8a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7423d7e4b399da926411e75feef2b932"><td class="memItemLeft" align="right" valign="top"><a id="a7423d7e4b399da926411e75feef2b932"></a>
-iterator&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<a class="el" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
 <tr class="separator:a7423d7e4b399da926411e75feef2b932"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3b60015488fec786fc9beaf6f841e72"><td class="memItemLeft" align="right" valign="top"><a id="aa3b60015488fec786fc9beaf6f841e72"></a>
-const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const</td></tr>
+<a class="el" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const</td></tr>
 <tr class="separator:aa3b60015488fec786fc9beaf6f841e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91527ae363da8bf1efb62552cfb0e182"><td class="memItemLeft" align="right" valign="top"><a id="a91527ae363da8bf1efb62552cfb0e182"></a>
-iterator&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<a class="el" href="classquemu_1_1State.html#a814b797ecd1f00b5415d8fe395a83158">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 <tr class="separator:a91527ae363da8bf1efb62552cfb0e182"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdb9e17a4016d5e0b9de9b1b226106ac"><td class="memItemLeft" align="right" valign="top"><a id="acdb9e17a4016d5e0b9de9b1b226106ac"></a>
-const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const</td></tr>
+<a class="el" href="classquemu_1_1State.html#aed048df6d2ad6d408856794f37e2f109">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const</td></tr>
 <tr class="separator:acdb9e17a4016d5e0b9de9b1b226106ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1966d8f05f309a3ba6d4ce6b92ea3021"><td class="memItemLeft" align="right" valign="top"><a id="a1966d8f05f309a3ba6d4ce6b92ea3021"></a>
-const cx_double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const size_t index) const</td></tr>
-<tr class="separator:a1966d8f05f309a3ba6d4ce6b92ea3021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a947d8350889e170eac2aa3dcd567ffc3"><td class="memItemLeft" align="right" valign="top"><a id="a947d8350889e170eac2aa3dcd567ffc3"></a>
-cx_double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const size_t index)</td></tr>
-<tr class="separator:a947d8350889e170eac2aa3dcd567ffc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5745c5744d684a53670d264702f7ec76"><td class="memItemLeft" align="right" valign="top">const std::complex&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquemu_1_1State.html#a5745c5744d684a53670d264702f7ec76">operator[]</a> (const size_t index) const</td></tr>
+<tr class="separator:a5745c5744d684a53670d264702f7ec76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f2a3115dded912681782cf6bdd2e193"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquemu_1_1State.html#a1f2a3115dded912681782cf6bdd2e193">operator[]</a> (const size_t index)</td></tr>
+<tr class="separator:a1f2a3115dded912681782cf6bdd2e193"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3cacf793406efd7339abfb24cd93620"><td class="memItemLeft" align="right" valign="top"><a id="ad3cacf793406efd7339abfb24cd93620"></a>
-qubit_t&#160;</td><td class="memItemRight" valign="bottom"><b>NumQubits</b> () const</td></tr>
+qubit_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquemu_1_1State.html#ad3cacf793406efd7339abfb24cd93620">NumQubits</a> () const</td></tr>
+<tr class="memdesc:ad3cacf793406efd7339abfb24cd93620"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of qubits in register. <br /></td></tr>
 <tr class="separator:ad3cacf793406efd7339abfb24cd93620"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c0921ec7c7079eab865ea9f2121ee8e"><td class="memItemLeft" align="right" valign="top"><a id="a6c0921ec7c7079eab865ea9f2121ee8e"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>Size</b> () const</td></tr>
+<tr class="memitem:a6c0921ec7c7079eab865ea9f2121ee8e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquemu_1_1State.html#a6c0921ec7c7079eab865ea9f2121ee8e">Size</a> () const</td></tr>
 <tr class="separator:a6c0921ec7c7079eab865ea9f2121ee8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac50d5996a78373ad6878c9c236a67787"><td class="memItemLeft" align="right" valign="top"><a id="ac50d5996a78373ad6878c9c236a67787"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Normalize</b> ()</td></tr>
+<tr class="memitem:ac50d5996a78373ad6878c9c236a67787"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquemu_1_1State.html#ac50d5996a78373ad6878c9c236a67787">Normalize</a> ()</td></tr>
 <tr class="separator:ac50d5996a78373ad6878c9c236a67787"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a637913c359645b9ad3fba7e5ec90929a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquemu_1_1State.html#a637913c359645b9ad3fba7e5ec90929a">CopyFrom</a> (const <a class="el" href="classquemu_1_1State.html">State</a> &amp;other)</td></tr>
 <tr class="separator:a637913c359645b9ad3fba7e5ec90929a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents tensor product state of a quantum register with N qubits. For a register with N qubits, the dimension of the joint state is 2 ^ N, where each index represents the complex amplitude corresponding to a particular combination of all N qubits. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a490314520b6ec259565f17f440ca8a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a490314520b6ec259565f17f440ca8a22">&#9670;&nbsp;</a></span>State()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">quemu::State::State </td>
+          <td>(</td>
+          <td class="paramtype">const qubit_t&#160;</td>
+          <td class="paramname"><em>num_qubits</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Initializes the state with fixed number of qubits. At initialization, the tensor product state will have a complex probability with a value of one in the zeroth index. (Would be measured in the zeroth state with probability one). </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a637913c359645b9ad3fba7e5ec90929a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a637913c359645b9ad3fba7e5ec90929a">&#9670;&nbsp;</a></span>CopyFrom()</h2>
@@ -135,6 +165,80 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Normalize</b> ()</td>
       </table>
 </div><div class="memdoc">
 <p>Copies state from other. If the number of qubits don't match, this method will return false, and the state will not be modifed. </p>
+
+</div>
+</div>
+<a id="ac50d5996a78373ad6878c9c236a67787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac50d5996a78373ad6878c9c236a67787">&#9670;&nbsp;</a></span>Normalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void quemu::State::Normalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Normalize the state coefficients such that the norm of the state equals one. </p>
+
+</div>
+</div>
+<a id="a1f2a3115dded912681782cf6bdd2e193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f2a3115dded912681782cf6bdd2e193">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt;double&gt;&amp; quemu::State::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Accesses complex amplitude at index in tensor product state. This operator is not bounds checked, and the index must fall in the range [0, 2 ^ N), where N is the number of qubits in the state. </p>
+
+</div>
+</div>
+<a id="a5745c5744d684a53670d264702f7ec76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5745c5744d684a53670d264702f7ec76">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::complex&lt;double&gt;&amp; quemu::State::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Accesses complex amplitude at index in tensor product state. This operator is not bounds checked, and the index must fall in the range [0, 2 ^ N), where N is the number of qubits in the state. </p>
+
+</div>
+</div>
+<a id="a6c0921ec7c7079eab865ea9f2121ee8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c0921ec7c7079eab865ea9f2121ee8e">&#9670;&nbsp;</a></span>Size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t quemu::State::Size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns dimension of tensor product state. This will be 2 ^ N, where N is the number of qubits in the register. </p>
 
 </div>
 </div>

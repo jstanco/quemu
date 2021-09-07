@@ -84,50 +84,50 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>quemu {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">typedef</span> std::complex&lt;double&gt; cx_double;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classquemu_1_1Circuit.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classquemu_1_1Circuit.html">Circuit</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="comment">// Circuits are non-copyable</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="classquemu_1_1Circuit.html">Circuit</a>(<span class="keyword">const</span> <a class="code" href="classquemu_1_1Circuit.html">Circuit</a> &amp;other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="classquemu_1_1Circuit.html">Circuit</a> &amp;operator=(<a class="code" href="classquemu_1_1Circuit.html">Circuit</a> other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classquemu_1_1Circuit.html#a775f51371e2bbaea4a0a79e744cbfc37">Transform</a>(<a class="code" href="classquemu_1_1State.html">State</a> &amp;state);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classquemu_1_1Circuit.html#a775f51371e2bbaea4a0a79e744cbfc37">Transform</a>(<span class="keyword">const</span> <a class="code" href="classquemu_1_1State.html">State</a> &amp;input, <a class="code" href="classquemu_1_1State.html">State</a> &amp;output);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">// Allow friend access in factory class</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classquemu_1_1CircuitBuilder.html">CircuitBuilder</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classquemu_1_1Circuit.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classquemu_1_1Circuit.html">Circuit</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="comment">// Circuits are non-copyable</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="classquemu_1_1Circuit.html">Circuit</a>(<span class="keyword">const</span> <a class="code" href="classquemu_1_1Circuit.html">Circuit</a> &amp;other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="classquemu_1_1Circuit.html">Circuit</a> &amp;operator=(<a class="code" href="classquemu_1_1Circuit.html">Circuit</a> other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classquemu_1_1Circuit.html#a775f51371e2bbaea4a0a79e744cbfc37">Transform</a>(<a class="code" href="classquemu_1_1State.html">State</a> &amp;state);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classquemu_1_1Circuit.html#a775f51371e2bbaea4a0a79e744cbfc37">Transform</a>(<span class="keyword">const</span> <a class="code" href="classquemu_1_1State.html">State</a> &amp;input, <a class="code" href="classquemu_1_1State.html">State</a> &amp;output);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">// Allow friend access in factory class</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classquemu_1_1CircuitBuilder.html">CircuitBuilder</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="classquemu_1_1Circuit.html">Circuit</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="classquemu_1_1Circuit.html">Circuit</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">// Convenience function for factory friend access</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">bool</span> AddGate(std::unique_ptr&lt;Gate&gt; gate, <span class="keyword">const</span> QubitList &amp;qubits,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;               <span class="keyword">const</span> uint32_t time);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">// Structure</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">struct </span>GateSpecifier {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Specifies discrete time that gate acts</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">const</span> uint32_t time;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// Specifies set of qubits that gate acts on</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QubitList qubits;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    GateSpecifier(<span class="keyword">const</span> uint32_t t, <span class="keyword">const</span> QubitList &amp;qs)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        : time{t}, qubits{qs} {}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">struct </span>GateComparator {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">// Convenience function for factory friend access</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">bool</span> AddGate(std::unique_ptr&lt;Gate&gt; gate, <span class="keyword">const</span> QubitList &amp;qubits,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;               <span class="keyword">const</span> uint32_t time);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="comment">// Specifies time a gate acts and the qubits it acts on.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">struct </span>GateSpecifier {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    GateSpecifier(<span class="keyword">const</span> uint32_t t, <span class="keyword">const</span> QubitList &amp;qs)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        : time{t}, qubits{qs} {}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// Specifies discrete time that gate acts</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">const</span> uint32_t time;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Specifies set of qubits that gate acts on</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QubitList qubits;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="comment">// Compares GateSpecifier instances to allow ordering in time.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">class </span>GateComparator {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// less than</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> GateSpecifier &amp;lhs, <span class="keyword">const</span> GateSpecifier &amp;rhs) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  };</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">typedef</span> std::map&lt;GateSpecifier, std::unique_ptr&lt;Gate&gt;, GateComparator&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      GateSchedule;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">using</span> GateSchedule =</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      std::map&lt;GateSpecifier, std::unique_ptr&lt;Gate&gt;, GateComparator&gt;;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  GateSchedule schedule_;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  std::map&lt;uint32_t, std::set&lt;qubit_t&gt; &gt; occupied_;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  std::map&lt;uint32_t, std::set&lt;qubit_t&gt;&gt; occupied_;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classquemu_1_1CircuitBuilder.html">   67</a></span>&#160;<span class="keyword">class </span><a class="code" href="classquemu_1_1CircuitBuilder.html">CircuitBuilder</a> {</div>
@@ -204,14 +204,14 @@ $(function() {
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_aa2645645521339573eba5d76e814025b"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#aa2645645521339573eba5d76e814025b">quemu::CircuitBuilder::AddGateI</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateI(const qubit_t qubit, const uint32_t time)</div><div class="ttdoc">Identity gate.</div></div>
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_a0c88cbf538a400214563d245c57ef5dd"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#a0c88cbf538a400214563d245c57ef5dd">quemu::CircuitBuilder::AddGateT</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateT(const qubit_t qubit, const uint32_t time)</div><div class="ttdoc">T-Gate (4th root of Z)</div></div>
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_a40fd92d1847803110ab8aa0919f18f2b"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#a40fd92d1847803110ab8aa0919f18f2b">quemu::CircuitBuilder::AddGateS</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateS(const qubit_t qubit, const uint32_t time)</div><div class="ttdoc">S-Gate (square root of Z)</div></div>
-<div class="ttc" id="aclassquemu_1_1Circuit_html"><div class="ttname"><a href="classquemu_1_1Circuit.html">quemu::Circuit</a></div><div class="ttdef"><b>Definition:</b> circuit.h:18</div></div>
+<div class="ttc" id="aclassquemu_1_1Circuit_html"><div class="ttname"><a href="classquemu_1_1Circuit.html">quemu::Circuit</a></div><div class="ttdef"><b>Definition:</b> circuit.h:16</div></div>
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_ab6916305014477e1ec30c83532995f84"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#ab6916305014477e1ec30c83532995f84">quemu::CircuitBuilder::AddGateCU3</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateCU3(const qubit_t qubit, const qubit_t control, const double phi1, const double phi2, const double phi3, const uint32_t time)</div><div class="ttdoc">Controlled unitary gate with three phase parameters.</div></div>
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_aeba0d6add820279b771397ecc91c3b8e"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#aeba0d6add820279b771397ecc91c3b8e">quemu::CircuitBuilder::AddGateX</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateX(const qubit_t qubit, const uint32_t time)</div><div class="ttdoc">Pauli X-gate.</div></div>
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_a86833873388d8cf56cbebda5dea1b7cc"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#a86833873388d8cf56cbebda5dea1b7cc">quemu::CircuitBuilder::AddGateU2</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateU2(const qubit_t qubit, const double phi1, const double phi2, const uint32_t time)</div><div class="ttdoc">Unitary gate with two phase parameters.</div></div>
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_ab88f6bdaa8b7b3e9bf16606e97e21b8d"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#ab88f6bdaa8b7b3e9bf16606e97e21b8d">quemu::CircuitBuilder::AddGateZ</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateZ(const qubit_t qubit, const uint32_t time)</div><div class="ttdoc">Pauli Z-gate.</div></div>
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_a7b630180a56f43062cdb7c3ce6c79a2c"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#a7b630180a56f43062cdb7c3ce6c79a2c">quemu::CircuitBuilder::AddGateY</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateY(const qubit_t qubit, const uint32_t time)</div><div class="ttdoc">Pauli Y-gate.</div></div>
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_adcdbaddf929fc98b460996221a123e90"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#adcdbaddf929fc98b460996221a123e90">quemu::CircuitBuilder::AddGateH</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateH(const qubit_t qubit, const uint32_t time)</div><div class="ttdoc">Add single-qubit Hadamard gate.</div></div>
-<div class="ttc" id="aclassquemu_1_1State_html"><div class="ttname"><a href="classquemu_1_1State.html">quemu::State</a></div><div class="ttdef"><b>Definition:</b> state.h:17</div></div>
+<div class="ttc" id="aclassquemu_1_1State_html"><div class="ttname"><a href="classquemu_1_1State.html">quemu::State</a></div><div class="ttdef"><b>Definition:</b> state.h:19</div></div>
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_ad1cb9913ac499fb51aa47caab9c7a7b8"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#ad1cb9913ac499fb51aa47caab9c7a7b8">quemu::CircuitBuilder::AddGateCX</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateCX(const qubit_t qubit, const qubit_t control, const uint32_t time)</div><div class="ttdoc">Controlled Pauli X-gate.</div></div>
 <div class="ttc" id="aclassquemu_1_1CircuitBuilder_html_a2006fb9e4c9aa20190b82fda3204f729"><div class="ttname"><a href="classquemu_1_1CircuitBuilder.html#a2006fb9e4c9aa20190b82fda3204f729">quemu::CircuitBuilder::AddGateU1</a></div><div class="ttdeci">CircuitBuilder &amp; AddGateU1(const qubit_t qubit, const double phase, const uint32_t time)</div><div class="ttdoc">Unitary gate with one phase parameter.</div></div>
 <div class="ttc" id="aclassquemu_1_1Circuit_html_a775f51371e2bbaea4a0a79e744cbfc37"><div class="ttname"><a href="classquemu_1_1Circuit.html#a775f51371e2bbaea4a0a79e744cbfc37">quemu::Circuit::Transform</a></div><div class="ttdeci">bool Transform(State &amp;state)</div></div>

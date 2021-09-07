@@ -72,23 +72,69 @@ $(function() {
 <div class="title">quemu::Gate Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstract base class representing a quantum gate.  
+ <a href="classquemu_1_1Gate.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="gate_8h_source.html">gate.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for quemu::Gate:</div>
 <div class="dyncontent">
 <div class="center"><img src="classquemu_1_1Gate__inherit__graph.png" border="0" usemap="#quemu_1_1Gate_inherit__map" alt="Inheritance graph"/></div>
 <map name="quemu_1_1Gate_inherit__map" id="quemu_1_1Gate_inherit__map">
-<area shape="rect" title=" " alt="" coords="87,5,193,32"/>
-<area shape="rect" href="classquemu_1_1CUGate.html" title=" " alt="" coords="5,80,131,107"/>
-<area shape="rect" href="classquemu_1_1UGate.html" title=" " alt="" coords="155,80,271,107"/>
+<area shape="rect" title="Abstract base class representing a quantum gate." alt="" coords="87,5,193,32"/>
+<area shape="rect" href="classquemu_1_1CUGate.html" title="Controlled unitary 3&#45;parameter quantum gate." alt="" coords="5,80,131,107"/>
+<area shape="rect" href="classquemu_1_1UGate.html" title="Unitary 3&#45;parameter quantum gate." alt="" coords="155,80,271,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a43db88591a0cd69603b36466ca4de3f0"><td class="memItemLeft" align="right" valign="top"><a id="a43db88591a0cd69603b36466ca4de3f0"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Transform</b> (<a class="el" href="classquemu_1_1State.html">State</a> &amp;state, const QubitList &amp;qubits)=0</td></tr>
+<tr class="memitem:a43db88591a0cd69603b36466ca4de3f0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquemu_1_1Gate.html#a43db88591a0cd69603b36466ca4de3f0">Transform</a> (<a class="el" href="classquemu_1_1State.html">State</a> &amp;state, const QubitList &amp;qubits)=0</td></tr>
 <tr class="separator:a43db88591a0cd69603b36466ca4de3f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract base class representing a quantum gate. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a43db88591a0cd69603b36466ca4de3f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43db88591a0cd69603b36466ca4de3f0">&#9670;&nbsp;</a></span>Transform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool quemu::Gate::Transform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classquemu_1_1State.html">State</a> &amp;&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QubitList &amp;&#160;</td>
+          <td class="paramname"><em>qubits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Transform input state in-place by acting on specified qubits on desired qubits. </p>
+
+<p>Implemented in <a class="el" href="classquemu_1_1CUGate.html#a0608162d0a64e9472c3a6bb29d499407">quemu::CUGate</a>, and <a class="el" href="classquemu_1_1UGate.html#a8a5760df553c11a17356a7ad41d068bb">quemu::UGate</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/runner/work/quemu/quemu/include/quemu/<a class="el" href="gate_8h_source.html">gate.h</a></li>
 </ul>
