@@ -10,6 +10,3 @@ set(SOURCES src/circuit.cc
 
 include_directories(include)
 add_library(quemu SHARED ${SOURCES})
-
-add_executable(main src/main.cc)
-target_link_libraries(main quemu)
