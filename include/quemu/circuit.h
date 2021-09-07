@@ -13,8 +13,6 @@
 
 namespace quemu {
 
-typedef std::complex<double> cx_double;
-
 class Circuit {
  public:
   // Circuits are non-copyable
@@ -40,28 +38,30 @@ class Circuit {
   bool AddGate(std::unique_ptr<Gate> gate, const QubitList &qubits,
                const uint32_t time);
 
-  // Structure
+  // Specifies time a gate acts and the qubits it acts on.
   struct GateSpecifier {
+    GateSpecifier(const uint32_t t, const QubitList &qs)
+        : time{t}, qubits{qs} {}
+
     // Specifies discrete time that gate acts
     const uint32_t time;
 
     // Specifies set of qubits that gate acts on
     QubitList qubits;
-
-    GateSpecifier(const uint32_t t, const QubitList &qs)
-        : time{t}, qubits{qs} {}
   };
 
-  struct GateComparator {
+  // Compares GateSpecifier instances to allow ordering in time.
+  class GateComparator {
+   public:
     // less than
     bool operator()(const GateSpecifier &lhs, const GateSpecifier &rhs) const;
   };
 
-  typedef std::map<GateSpecifier, std::unique_ptr<Gate>, GateComparator>
-      GateSchedule;
+  using GateSchedule =
+      std::map<GateSpecifier, std::unique_ptr<Gate>, GateComparator>;
 
   GateSchedule schedule_;
-  std::map<uint32_t, std::set<qubit_t> > occupied_;
+  std::map<uint32_t, std::set<qubit_t>> occupied_;
 };
 
 class CircuitBuilder {

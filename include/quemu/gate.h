@@ -21,12 +21,13 @@ class Gate {
  public:
   virtual ~Gate() {}
 
-  // Transform input state in-place acting on desired qubits.
+  /// Transform input state in-place by acting on specified qubits on desired
+  /// qubits.
   virtual bool Transform(State &state, const QubitList &qubits) = 0;
 };
 
 /// Unitary 3-parameter quantum gate
-class UGate : public Gate {
+class UGate final : public Gate {
  public:
   UGate(const double phi1, const double phi2, const double phi3);
   bool Transform(State &state, const QubitList &qubits) override;
@@ -36,7 +37,7 @@ class UGate : public Gate {
 };
 
 /// Controlled unitary 3-parameter quantum gate
-class CUGate : public Gate {
+class CUGate final : public Gate {
  public:
   CUGate(const double phi1, const double phi2, const double phi3);
   bool Transform(State &state, const QubitList &qubits) override;

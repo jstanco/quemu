@@ -5,6 +5,9 @@
 #include <cstring>
 
 namespace quemu {
+namespace {
+using cx_double = std::complex<double>;
+}
 
 State::State(const qubit_t num_qubits)
     : states_{std::vector<cx_double>(1 << num_qubits)},
